@@ -8,7 +8,6 @@ using namespace std;
 
 int philosophersCount = 0;
 vector<string> currentState;
-vector<string> lastCurrentState;
 vector<sem_t> forks;
 mutex printMutex;
 
@@ -69,7 +68,6 @@ int main(int argc, char* argv[]) {
     }
 
     currentState.resize(philosophersCount, "thinking"); //Resize vectors to match the number of philosophers
-    lastCurrentState.resize(philosophersCount, ""); //Empty to ensure first state is always printed
     forks.resize(philosophersCount); //One semaphore per fork
 
     cout << "Dining Philosophers Problem (with waiter)" << endl;
